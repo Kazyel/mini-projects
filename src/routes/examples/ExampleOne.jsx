@@ -1,5 +1,5 @@
 const ExampleOne = () => {
-  return <h1>teste</h1>;
+  return <div></div>;
 };
 
 export default ExampleOne;

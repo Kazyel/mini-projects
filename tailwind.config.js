@@ -10,6 +10,9 @@ export default {
       accent: "var(--accent)",
       mid: "var(--mid)",
     },
+    fontFamily: {
+      poppins: ["Poppins", "sans-serif"],
+    },
     extend: {},
   },
   plugins: [],

@@ -18,7 +18,7 @@
 
   --accent: hsl(45, 70%, 56%);
   --darkest: #221f25;
-  --dark: rgb(109, 106, 117);
+  --dark: rgb(87, 85, 94);
   --mid: rgb(168, 165, 177);
   --light: rgb(218, 213, 227);
   --lightest: rgb(255, 255, 255);
@@ -31,11 +31,16 @@ a {
 }
 a:hover {
   text-underline-offset: 0.4em;
-  text-decoration-thickness: 1px;
+  text-decoration-thickness: 2px;
 }
 
 body {
   margin: 0;
   display: flex;
   justify-content: center;
+}
+
+main {
+  width: min(95ch, 100% - 4rem);
+  margin-inline: auto;
 }
