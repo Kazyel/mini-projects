@@ -8,4 +8,4 @@ So I said to myself: "Would be pretty cool if I could storage all theses pattern
 
 And here it is. 
 
-**I'm building it with a simple stack of Vite, TailwindCSS, ReactRouter and Hero/React Icons.**
+**I'm building it with a simple stack of Vite, TailwindCSS, ReactRouter, React Icons and Swiper.js**!
