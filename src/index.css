@@ -22,25 +22,24 @@
   --mid: rgb(168, 165, 177);
   --light: rgb(218, 213, 227);
   --lightest: rgb(255, 255, 255);
-}
 
-a {
-  text-decoration: underline 0.15em rgba(0, 0, 0, 0);
-  text-underline-offset: 0.3em;
-  transition: all 250ms ease;
-}
-a:hover {
-  text-underline-offset: 0.4em;
-  text-decoration-thickness: 2px;
+  --swiper-pagination-bottom: 0px;
+  --swiper-pagination-color: var(--accent);
+  --swiper-pagination-bullet-inactive-color: var(--mid);
+  --swiper-pagination-bullet-inactive-opacity: 1;
+  --swiper-pagination-bullet-horizontal-gap: 6px;
+  --swiper-pagination-bullet-size: 12px;
 }
 
 body {
+  min-height: 100vh;
   margin: 0;
   display: flex;
   justify-content: center;
 }
 
-main {
-  width: min(95ch, 100% - 4rem);
+main,
+.about {
+  width: min(85ch, 100% - 4rem);
   margin-inline: auto;
 }

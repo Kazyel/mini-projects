@@ -1,11 +1,16 @@
-const Card = ({ name, description }) => {
+import { Link } from "react-router-dom";
+
+const Card = ({ name, description, url }) => {
   return (
-    <div className="w-[240px] h-[240px] border border-b-[8px] hover:border-b-2 flex flex-col justify-center items-center rounded-xl">
-      <h2 className="text-2xl font-bold">
-        <span className="text-accent">{name.charAt(0)}</span>{name.substring(1)}
-      </h2>
-      <p className="text-sm text-mid">{description}</p>
-    </div>
+    <Link to={url}>
+      <div className="w-[272px] h-[272px] border border-b-[9px] hover:border-b-2 flex flex-col justify-center items-center rounded-2xl">
+        <h2 className="text-2xl font-bold">
+          <span className="text-accent">{name.charAt(0)}</span>
+          {name.substring(1)}
+        </h2>
+        <p className="text-sm text-mid">{description}</p>
+      </div>
+    </Link>
   );
 };
 

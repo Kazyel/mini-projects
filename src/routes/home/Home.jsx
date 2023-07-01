@@ -1,50 +1,69 @@
 import Card from "../../components/Card/Card";
-
-const projects = [
-  {
-    id: 1,
-    name: "Teste 1",
-    description: "Lorem ipsum dolor sit.",
-  },
-  {
-    id: 2,
-    name: "Teste 2",
-    description: "Lorem ipsum dolor sit.",
-  },
-  {
-    id: 3,
-    name: "Teste 3",
-    description: "Lorem ipsum dolor sit.",
-  },
-];
+import { FaArrowRight, FaArrowLeft, FaReact } from "react-icons/fa";
+import { projects } from "../../constants";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper";
+import { useRef } from "react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "./Home.css";
 
 const Home = () => {
+  const swiperRef = useRef();
+
   return (
-    <>
-      <div>
-        <h2 className="text-center text-3xl font-bold border-b-2 pb-7">
-          Hey!👋 Here I save and display some cool things I saw on the internet.
-        </h2>
-        <p className="text-xl mt-7 text-justify leading-8 font-extralight">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est et
-          tempora harum hic doloremque, nulla ipsum. Dolores beatae modi qui
-          veritatis provident harum, error vel, impedit eos minima minus sequi
-          veniam maxime quod suscipit nobis itaque possimus fuga laborum quas
-          nihil, eligendi nulla reiciendis. Unde delectus commodi quae
-          reprehenderit aut voluptatem repudiandae impedit velit eos suscipit
-          eveniet numquam in laborum ipsum quas iure, dolorum error dolore.{" "}
-        </p>
+    <div className="mt-[5rem] flex flex-col justify-center items-center ">
+      <div className=" border-b-2 flex items-center gap-2 border-light w-[1000px] pb-4">
+        <span className="text-center text-light text-[1.75rem] font-bold">
+          <span className="text-accent">Hey!</span>👋 Here I store and display
+          cool
+        </span>{" "}
+        <FaReact className="text-[#149eca] w-9 h-9"></FaReact>
+        <span className="text-center text-light text-[1.75rem] font-bold">
+          {" "}
+          things I found on the internet!
+        </span>
       </div>
-      <div className="mt-14 flex gap-8 justify-center items-center">
-        {projects.map((project) => (
-          <Card
-            key={project.name}
-            name={project.name}
-            description={project.description}
-          ></Card>
-        ))}
+
+      <p className="text-6xl text-mid font-semibold mt-[6rem] mb-12 text-center">
+        <span className="text-accent font-bold">Check</span> some of the{" "}
+        <span className="text-lightest">stuff</span>!
+      </p>
+      <div className="flex gap-8 justify-center items-center select-none">
+        <FaArrowLeft
+          onClick={() => swiperRef.current.slidePrev()}
+          className="h-12 w-12 p-2 mb-9 cursor-pointer rounded-full hover:text-accent hover:bg-dark transition-all duration-200 ease"
+        ></FaArrowLeft>
+
+        <Swiper
+          speed={400}
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper;
+          }}
+          spaceBetween={25}
+          slidesPerView={3}
+          modules={[Pagination]}
+          grabCursor={true}
+          pagination={true}
+          className="max-w-[868px] rounded-xl"
+        >
+          {projects.map((project) => (
+            <SwiperSlide key={project.name}>
+              <Card
+                name={project.name}
+                description={project.description}
+                url={project.url}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        <FaArrowRight
+          onClick={() => swiperRef.current.slideNext()}
+          className="h-12 w-12 p-2 mb-9 cursor-pointer rounded-full hover:text-accent hover:bg-dark transition-all duration-200 ease"
+        ></FaArrowRight>
       </div>
-    </>
+    </div>
   );
 };
 
